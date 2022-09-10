@@ -1,0 +1,20 @@
+{
+  "name": "personal_blog_backend",
+  "version": "1.0.0",
+  "description": "In this repo, I created the backend of my personal blog, with three versions.\r - Node.js\r - Express\r - KOA2",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yankun-song/Personal_Blog_Backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yankun-song/Personal_Blog_Backend/issues"
+  },
+  "homepage": "https://github.com/yankun-song/Personal_Blog_Backend#readme"
+}
