@@ -40,18 +40,22 @@ const serverHandle = (req, res) => {
   req.query = querystring.parse(url.split("?")[1]);
 
   getPostData(req).then((postData) => {
-    req.body = postData; 
-    
+    req.body = postData;
+
     // try blog router first
-    const blogData = handleBlogRouter(req, res);
-    if (blogData) {
-      res.end(JSON.stringify(blogData));
+    const blogRes = handleBlogRouter(req, res);
+    if (blogRes) {
+      blogRes.then((blogData) => {
+        res.end(JSON.stringify(blogData));
+      });
       return;
     }
     // try user router second
-    const userData = handleUserRouter(req, res);
-    if (userData) {
-      res.end(JSON.stringify(userData));
+    const userRes = handleUserRouter(req, res);
+    if (userRes) {
+      userRes.then((userData) => {
+        res.end(JSON.stringify(userData));
+      });
       return;
     }
 

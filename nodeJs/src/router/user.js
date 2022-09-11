@@ -9,10 +9,12 @@ const handleUserRouter = (req, res) => {
   // Login
   if (method === "POST" && path === "/api/user/login") {
     const { username, password } = req.body;
-    const res = loginCheck(username, password);
-    if (res) return new SuccessModel();
-    return new ErrorModel("login failed");
+    const result = loginCheck(username, password);
+    return result.then((data) => {
+      if (data.username) return new SuccessModel(data);
+      return new ErrorModel("login failed");
+    });
   }
 };
 
-module.exports =  handleUserRouter ;
+module.exports = handleUserRouter;
